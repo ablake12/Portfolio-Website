@@ -2,7 +2,7 @@
 
 ## To run locally:
 1. Open the terminal and navigate to the website directory
-```cd website```
+   ```cd website```
 2. Export the environment variable ```FLASK_APP```
 export FLASK_APP=website.py
 3. Run locally
