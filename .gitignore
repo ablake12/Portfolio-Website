@@ -2,5 +2,5 @@
 *.pyc
 venv/
 website/.DS_Store
-website/projectstodo.txt
 website/static/.DS_Store
+website/projectstodo.txt
