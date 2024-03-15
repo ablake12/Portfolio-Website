@@ -7,7 +7,7 @@
 - export FLASK_APP=website.py
 3. Run locally:
 - ```flask run```
-To debug:
+ To debug:
 - ```flask run --debugger```
 For other users:
 - ```flask run --host=0.0.0.0```
