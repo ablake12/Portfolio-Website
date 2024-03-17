@@ -1,41 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-        body {background-color: #A3C7E0;}
-        .topnav {
-            background-color: #FFFFFF;
-            overflow: hidden;
-        }
-        .topnav a {
-            float:left;
-            color: black;
-            text-align: center;
-            padding: 10px 86px;
-            text-decoration: none;
-            font-size: 17px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-        /* Add a color to the active/current link */
-        .topnav a.active {
-            color: #0F42F5;
-        }
-        @media screen and (max-width: 300px) {
-            .navbar a {
-                float: none;
-                display:block;
-                width: 100%;
-                text-align: left; /* If you want the text to be left-aligned on small screens */
-            }
-        }
-        p {
-            font-size: 30px;
-        }
-        .centered {
-            text-align: center;
-        }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="topnav" id="myTopnav">
@@ -50,14 +16,14 @@
         </a>
     </div>
     <div>
-        <h1 style="text-align:center;">My First Heading</h1>
+        <h1 class="centered">My First Heading</h1>
     </div>
     <div class="centered">
-        <p>Hello! Welcome to my website.<br> My name is Alanza Blake and I’m a recent Spelman College graduate. <br>Please learn more about me, my skillset, and my interests!</p>
+        <p class="paragraph-intro">Hello! Welcome to my website.<br> My name is Alanza Blake and I'm a recent Spelman College graduate. <br>Please learn more about me, my skillset, and my interests!</p>
         <a href="/about">
             <button>Enter to learn more about me!</button>
         </a>
     </div>
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
