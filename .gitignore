@@ -4,3 +4,4 @@ venv/
 website/.DS_Store
 website/static/.DS_Store
 website/projectstodo.txt
+website/about_me.txt
