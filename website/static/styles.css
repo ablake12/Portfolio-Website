@@ -36,8 +36,17 @@ p {
 }
 
 .headshot-image {
-    width: 200px;
-    height: auto;
+    width: 400px;
+    height: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.header-centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 140px;
 }
 .paragraph-intro {
     font-size: 30px;
@@ -50,11 +59,34 @@ p {
     color: #FF0691
 }
 .contact-form {
-    width: 100%; /* Adjust as needed */
-    max-width: 650px; /* Limit maximum width if necessary */
+    width: 100%;
+    max-width: 650px;
 }
 .contact-form iframe {
     width: 100%;
-    height: 720px; /* Adjust height as needed */
-    border: 0; /* Remove iframe border */
+    height: 720px;
+    border: 0;
 }
+.indent{
+    text-indent: 30px;
+}
+
+.about-content {
+    display: flex;
+}
+
+/* .about-content p {
+    flex: 1;
+} */
+
+.about-photo {
+    /* margin-left: 10px; */
+    padding-left: 20px;
+    /* max-width: 10px;
+    height: auto; */
+    max-width: 25%;
+    max-height:15%;
+    float: left;
+}
+
+
