@@ -8,7 +8,7 @@
 3. Run locally:
 - ```flask run```
  To debug:
-- ```flask run --debugger```
+- ```python3 website.py```
 For other users:
 - ```flask run --host=0.0.0.0```
 4. Go to the given port and enjoy!
