@@ -36,7 +36,7 @@ p {
 }
 
 .headshot-image {
-    width: 400px;
+    width: 350px;
     height: 450px;
     display: block;
     margin-left: auto;
@@ -76,15 +76,31 @@ p {
     align-items: flex-start;
 }
 
-.about-text {
-    flex: 1;
+.about-text-left {
+    flex: 100%;
     padding-left: 20px;
 }
 
-.about-photo {
+.photo-initiation {
     padding-left: 20px;
     margin-top: 20px;
     max-width: 225px;
     max-height: 250px;
 }
 
+.about-text-right {
+    flex: 100%;
+    padding-right: 20px;
+}
+.photo-conference {
+    padding-right: 20px;
+    margin-top: 20px;
+    max-width: 225px;
+    max-height: 250px;
+}
+.photo-italy {
+    padding-left: 20px;
+    margin-top: 20px;
+    max-width: 225px;
+    max-height: 250px;
+}
