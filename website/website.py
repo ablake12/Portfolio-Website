@@ -55,8 +55,7 @@ def submitted():
         else:
             subject = f"Incoming Message From Website - {subject}"
 
-
-        msg = Message(subject, recipients=[os.getenv('EMAIL_USERNAME')])
+        msg = Message(subject, recipients=[os.getenv('EMAIL_USERNAME')], reply_to=email)
         msg.body = f"Name: {name}\n\nEmail: {email}\n\nMessage:\n{message}"
         mail.send(msg)
 
