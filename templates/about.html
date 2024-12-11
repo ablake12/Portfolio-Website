@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Ruwudu&display=swap" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Rochester&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- <div class="topnav" id="myTopnav">
+        <a href="/"><b>Home</b></a>
+        <a href="/about" class="active"><b>About Me</b></a>
+        <a href="/resume"><b>Resume</b></a>
+        <a href="/projects"><b>Projects</b></a>
+        <a href="/jams"><b>Jams</b></a>
+        <a href="/contact"><b>Contact</b></a>
+        <a href="javascript:void(0);" class="icon" onclick="activeFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div> -->
+    <header id="header" class="header align-items-center sticky-top">
+        <div class="container-fluid d-flex align-items-center justify-content-between">
+          <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
+            <h1 class="sitename">Alanza</h1>
+          </a>
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                <li><a href="/"><b>Home</b></a></li>
+                <li><a href="/about" class="active"><b>About</b></a></li>
+                <li><a href="/resume"><b>Resume</b></a></li>
+                <li><a href="/portfolio"><b>Portfolio</b></a></li>
+                <li><a href="/jams"><b>Jams</b></a></li>
+                <li><a href="/contact"><b>Contact</b></a></li>
+                </ul>
+            </nav>
+
+        <div class="header-social-links">
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href="https://github.com/ablake12/"><i class="bi bi-github"></i></a>
+            <a href="https://www.linkedin.com/in/ablake12/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+    
+        </div>
+    </header>
+
+    <section>
+        <div class="headshot-image">
+            <img src="{{ url_for('static', filename='drape_photo.jpg') }}" alt="Alanza Blake">
+        </div>
+            <div class="about-content">
+                <div class = "about-text-one">
+                    <p class="indent">Greetings! My name is Alanza Blake, a Software Engineer and a 2022 Magna Cum Laude Spelman College graduate from Maplewood, New Jersey. I started my technology journey in 2016 when I participated in the Girls Who Code Summer Immersion Program, where I got a chance to create my first coding projects and visit successful technology companies and institutions. I cherish this experience, however, one thing that bothered me was the lack of women and people of color in the technology industry. Since then, I’ve been dedicated to changing this stigma and breaking that barrier as a woman of color. Since Girls Who Code, I remained active in the organization as the Vice President of the Girls Who Code Spelman College loop. This student organization allowed me to hold office hours for Computer Science coursework and host a successful collaborative event with Citi that exposed the students to the opportunities at the company. In addition to this, I had the privilege of serving as an upperclassman mentor in Spelman Protégé, an organization committed to offering freshmen students professional guidance and opportunities. My involvement during my undergraduate career has further fueled my lifelong passion for technology, service, and mentorship and I get to continue that service as the technology chairman of Alpha Kappa Alpha Sorority, Incorporated Pi Theta Omega Chapter. Through these experiences, I have developed skills such as leadership, management, communication, adaptability, a technical skillset, and problem-solving.</p>
+                </div>
+                <div class="photo-boule">
+                    <img src="{{ url_for('static', filename='boule.jpg') }}" alt="Alanza's Boule Photo">
+                </div>
+            </div>
+            <div class="about-content">
+                <div class="photo-conference">
+                    <img src="{{ url_for('static', filename='conference.jpg') }}" alt="Alanza's Conference Photo">
+                </div>
+                <div class = "about-text-two">
+                    <p class="indent">I started my professional career in June 2020, when I interned at Optum as a research fellow for the Optum Startup Studio, the company’s startup accelerator. I collaborated with a team of 5 to evaluate and recommend innovative healthcare startups to senior leadership. Following this experience, I returned in summer 2021 for a software engineering internship, where I worked with a team to create a full-stack software application that would allow clinicians to leverage Artificial Intelligence as a colleague. I thoroughly enjoyed both my internships at Optum, leading me to join full-time upon graduating with my Bachelor of Science degree in Computer Science in May 2022. I spent my first year at the company in a rotational program where I got to experience various areas of technology, including software engineering, data visualization, and product management. Presently, I hold the position of Associate Software Engineer at Optum, where I specialize in Python coding for multiple file generation processes for both the Company’s internal and external vendors.</p>
+                </div>
+            </div>
+            <div class="about-content">
+                <div class = "about-text-three">
+                    <p class="indent">Lastly, during my free time, I enjoy community service, baking, exercising, spending time with family and friends, and traveling. This past summer, I embarked on an unforgettable trip to Europe. Spain, France, and Italy enriched me with their vibrant cultures and fueled my excitement for future adventures. These hobbies not only bring me joy and fulfillment but also complement my professional interests and goals. I’m currently located in Washington, D.C, where I’m actively engaging in my hobbies and exploring new activities to step outside of my comfort zone.</p>
+                </div>
+                <div class="photo-italy">
+                    <img src="{{ url_for('static', filename='rome.jpg') }}" alt="Alanza's Italy Photo">
+                </div>
+            </div>
+            <div class="about-content">
+                <div class = "about-text-four">
+                    <p class="indent">Thank you for exploring my website and getting to know more about me! If you have any questions or would like to get in touch, please feel free to <a href="/contact">contact</a> me. I look forward to connecting with you!</p>
+                </div>
+            </div>
+            <div class = "about-text-five">
+                <p><em>Success is liking yourself, liking what you do, and liking how you do it.</em> -  Maya Angelou</p>
+            </div>
+    </section>
+
+    <footer id="footer" class="footer">
+        <div class="container">
+          <div class="copyright text-center">
+            <p>© <span>Copyright</span> <strong>Alanza</strong> <span>All Rights Reserved<br></span></p>
+          </div>
+          <div class="social-links d-flex justify-content-center">
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href="https://github.com/ablake12/"><i class="bi bi-github"></i></a>
+            <a href="https://www.linkedin.com/in/ablake12/"><i class="bi bi-linkedin"></i></a>
+          </div>
+          <div class="credits">
+            Designed with <a href="https://getbootstrap.com/">Bootstrap</a>
+          </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
