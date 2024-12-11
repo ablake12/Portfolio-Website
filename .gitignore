@@ -8,3 +8,4 @@ website/about_me.txt
 .DS_Store
 website/.DS_Store
 website/.env
+website/templates/.DS_Store
