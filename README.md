@@ -13,7 +13,7 @@ pip3 install -r requirements.txt
 5. Run locally:
 - ```flask run```
  To debug:
-- ```python3 website/website.py```
+- ```python3 website.py```
 For other users:
 - ```flask run --host=0.0.0.0```
 6. Go to the given port and enjoy!
