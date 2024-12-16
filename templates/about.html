@@ -8,40 +8,27 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <!-- <div class="topnav" id="myTopnav">
-        <a href="/"><b>Home</b></a>
-        <a href="/about" class="active"><b>About Me</b></a>
-        <a href="/resume"><b>Resume</b></a>
-        <a href="/projects"><b>Projects</b></a>
-        <a href="/jams"><b>Jams</b></a>
-        <a href="/contact"><b>Contact</b></a>
-        <a href="javascript:void(0);" class="icon" onclick="activeFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div> -->
     <header id="header" class="header align-items-center sticky-top">
         <div class="container-fluid d-flex align-items-center justify-content-between">
-          <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
-            <h1 class="sitename">Alanza</h1>
-          </a>
+            <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
+              <h1 class="sitename">Alanza</h1>
+            </a>
             <nav id="navmenu" class="navmenu">
                 <ul>
-                <li><a href="/"><b>Home</b></a></li>
-                <li><a href="/about" class="active"><b>About</b></a></li>
-                <li><a href="/resume"><b>Resume</b></a></li>
-                <li><a href="/portfolio"><b>Portfolio</b></a></li>
-                <li><a href="/jams"><b>Jams</b></a></li>
-                <li><a href="/contact"><b>Contact</b></a></li>
+                    <li><a href="/"><b>Home</b></a></li>
+                    <li><a href="/about" class="active"><b>About</b></a></li>
+                    <li><a href="/resume"><b>Resume</b></a></li>
+                    <li><a href="/portfolio"><b>Portfolio</b></a></li>
+                    <li><a href="/jams"><b>Jams</b></a></li>
+                    <li><a href="/contact"><b>Contact</b></a></li>
                 </ul>
+                <i class="mobile-nav-toggle bi bi-list d-xl-none"></i>
             </nav>
-
         <div class="header-social-links">
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href="https://github.com/ablake12/"><i class="bi bi-github"></i></a>
-            <a href="https://www.linkedin.com/in/ablake12/" class="linkedin"><i class="bi bi-linkedin"></i></a>
-          </div>
-    
-        </div>
+            <a href=""><i class="bi bi-instagram" target="_blank"></i></a>
+            <a href="https://github.com/ablake12/" target="_blank"><i class="bi bi-github"></i></a>
+            <a href="https://www.linkedin.com/in/ablake12/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+            </div>
     </header>
 
     <section>
@@ -56,12 +43,20 @@
                     <img src="{{ url_for('static', filename='boule.jpg') }}" alt="Alanza's Boule Photo">
                 </div>
             </div>
-            <div class="about-content">
+            <div class="about-content-one">
                 <div class="photo-conference">
                     <img src="{{ url_for('static', filename='conference.jpg') }}" alt="Alanza's Conference Photo">
                 </div>
                 <div class = "about-text-two">
                     <p class="indent">I started my professional career in June 2020, when I interned at Optum as a research fellow for the Optum Startup Studio, the company’s startup accelerator. I collaborated with a team of 5 to evaluate and recommend innovative healthcare startups to senior leadership. Following this experience, I returned in summer 2021 for a software engineering internship, where I worked with a team to create a full-stack software application that would allow clinicians to leverage Artificial Intelligence as a colleague. I thoroughly enjoyed both my internships at Optum, leading me to join full-time upon graduating with my Bachelor of Science degree in Computer Science in May 2022. I spent my first year at the company in a rotational program where I got to experience various areas of technology, including software engineering, data visualization, and product management. Presently, I hold the position of Associate Software Engineer at Optum, where I specialize in Python coding for multiple file generation processes for both the Company’s internal and external vendors.</p>
+                </div>
+            </div>
+            <div class="about-content-two">
+                <div class = "about-text-two">
+                    <p class="indent">I started my professional career in June 2020, when I interned at Optum as a research fellow for the Optum Startup Studio, the company’s startup accelerator. I collaborated with a team of 5 to evaluate and recommend innovative healthcare startups to senior leadership. Following this experience, I returned in summer 2021 for a software engineering internship, where I worked with a team to create a full-stack software application that would allow clinicians to leverage Artificial Intelligence as a colleague. I thoroughly enjoyed both my internships at Optum, leading me to join full-time upon graduating with my Bachelor of Science degree in Computer Science in May 2022. I spent my first year at the company in a rotational program where I got to experience various areas of technology, including software engineering, data visualization, and product management. Presently, I hold the position of Associate Software Engineer at Optum, where I specialize in Python coding for multiple file generation processes for both the Company’s internal and external vendors.</p>
+                </div>
+                <div class="photo-conference">
+                    <img src="{{ url_for('static', filename='conference.jpg') }}" alt="Alanza's Conference Photo">
                 </div>
             </div>
             <div class="about-content">
@@ -88,15 +83,16 @@
             <p>© <span>Copyright</span> <strong>Alanza</strong> <span>All Rights Reserved<br></span></p>
           </div>
           <div class="social-links d-flex justify-content-center">
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href="https://github.com/ablake12/"><i class="bi bi-github"></i></a>
-            <a href="https://www.linkedin.com/in/ablake12/"><i class="bi bi-linkedin"></i></a>
+            <a href=""><i class="bi bi-instagram" target="_blank"></i></a>
+            <a href="https://github.com/ablake12/" target="_blank"><i class="bi bi-github"></i></a>
+            <a href="https://www.linkedin.com/in/ablake12/" target="_blank"><i class="bi bi-linkedin"></i></a>
           </div>
           <div class="credits">
             Designed with <a href="https://getbootstrap.com/">Bootstrap</a>
           </div>
         </div>
     </footer>
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-chevron-up"></i></a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
