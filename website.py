@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from flask import Flask, render_template, request #import flask libraries
+from flask import Flask, render_template, request, send_file #import flask libraries
 from flask_mail import Mail, Message #import flask library for email
 
 load_dotenv()
@@ -30,6 +30,10 @@ def about():
 def resume():
     return render_template('resume.html')#render html form
 
+@app.route('/resume.pdf') #html route for downloading resume
+def resume_download():
+    return send_file('static/resume.pdf', mimetype='application/pdf', attachment_filename='Alanza_Blake_resume.pdf', as_attachment=True)
+
 @app.route('/portfolio')#make this function run on the original route
 def project():
     return render_template('projects.html')#render html form
@@ -42,7 +46,7 @@ def music():
 def contact():
     return render_template('contact.html')#render html form
 
-@app.route('/contact', methods = ['POST'])
+@app.route('/contact', methods = ['POST'])# html template for after submitting the form
 def submitted():
     try:
         name = request.form.get("name")
