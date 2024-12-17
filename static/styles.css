@@ -20,48 +20,24 @@ body {
     color: white;
     border: 1px solid #41a9c9;
     background-color: #41a9c9;
-    /* left: 50%; */
     border-radius: 50%;
-    /* right: 100%; */
-    position: absolute;
-    /* z-index: 50; */
-    /* margin: 0 10px; */
-    padding-right: 0;
-    box-sizing: border-box;
-    display: flex;
+    position: fixed;
+    display: none;
     width: 45px;
     height: 45px;
     font-size: 23px;
-    bottom: -500px;
-    z-index: 99999;
-    /* visibility: hidden; */
-    right: 30px;
-    transition: all 0.4s;
+    bottom: 50px;
+    z-index: 99;
+    right: 40px;
+    text-align: center;
+    padding-top: 3px;
+    cursor: pointer;
+    transition: all 0.8s;
 }
 
-.scroll-top:hover{
-    opacity: 90%;
+.scroll-top:hover, .scroll-top.active {
+    opacity: 85%;
 }
-
-/* .scroll-top {
-  position: fixed;
-  visibility: hidden;
-  opacity: 0;
-  right: 15px;
-  bottom: -15px;
-  z-index: 99999;
-  background-color: var(--accent-color);
-  width: 44px;
-  height: 44px;
-  border-radius: 50px;
-  transition: all 0.4s;
-} */
-
-.scroll-top.active {
-    visibility: visible;
-    opacity: 1;
-    bottom: 15px;
-  }
 /*Header/Nav bar*/
 .header {
     color: black;
@@ -107,66 +83,51 @@ body {
     .mobile-nav-toggle {
       color: black;
       font-size: 28px;
-      /* line-height: 0; */
       padding-right: 10px;
       cursor: pointer;
-      transition: color 0.5s;
     }
   
     .navmenu {
       padding: 0;
-      z-index: 5000;
+      z-index: 1000;
     }
   
     .navmenu ul {
       display: none;
-      /* list-style: none; */
       position: absolute;
-      /* padding: 10px 0; */
-      padding: 10px 0;
-      /* margin: 0; */
-      inset: 65px 15px 5px 25px;
+      padding: 20px 0;
+      inset: 80px 15px 5px 25px;
       background-color: white;
       opacity: 90%;
       border: 1px solid white;
       border-radius: 10px;
       box-shadow: none;
       overflow-y: auto;
-      /* transition: 0.3s; */
-      /* z-index: 9998; */
       z-index: 5000;
     }
   
     .navmenu a {
       color: black;
       padding: 15px 20px;
-      /* font-family: var(--nav-font); */
-      /* font-size: 17px; */
       font-size: 25px;
       font-weight: 500;
+      display: block;
       text-align: center;
-      display: flex;
       align-items: center;
       justify-content: center;
       white-space: nowrap;
-      margin-bottom: 37px;
+      margin-bottom: 35px;
+      padding-left: 35px;
       /* transition: 0.3s; */
     }
   
     .navmenu a i{
       font-size: 12px;
-      /* line-height: 0; */
-      /* margin-left: 5px; */
       width: 30px;
+      display: block;
       align-items: center;
       justify-content: center;
-      /* height: 30px; */
-      /* display: flex; */
-      /* align-items: center; */
-      /* justify-content: center; */
-      /* border-radius: 50%; */
-      /* transition: 0.3s; */
-      /* background-color: color-mix(in srgb, var(--accent-color), transparent 90%); */
+      text-align: center;
     }
   
     .navmenu a:hover {
@@ -177,46 +138,10 @@ body {
         color: #0F42F5;
     }
   
-    /* .navmenu a:hover,
-    .navmenu .active,
-    .navmenu .active:focus {
-      color: var(--nav-dropdown-hover-color);
-    } */
-  
-    /* .navmenu .active i,
-    .navmenu .active:focus i {
-      background-color: var(--accent-color);
-      color: var(--contrast-color);
-      transform: rotate(180deg);
-    } */
-  
-    /* .navmenu .dropdown ul {
-      position: static;
-      display: none;
-      z-index: 99;
-      padding: 10px 0;
-      margin: 10px 20px;
-      transition: all 0.5s ease-in-out;
-    } */
-  
-    /* .navmenu .dropdown ul ul {
-      background-color: rgba(33, 37, 41, 0.1);
-    } */
-  
-    /* .navmenu .dropdown>.dropdown-active {
-      display: block;
-      background-color: rgba(33, 37, 41, 0.03);
-    } */
-  
-    /* .mobile-nav-active {
-      overflow: hidden;
-    } */
-  
     .mobile-nav-active .mobile-nav-toggle {
       color: white;
       position: absolute;
       top: 15px;
-      /* right: 23px; */
       display: flex;
       margin: 0 10px;
       justify-content: center;
@@ -225,7 +150,7 @@ body {
       border: 1px solid #41a9c9;
       background-color: #41a9c9;
       transform: translateX(-50%);
-      left: 50%;
+      left: 50.2%;
       border-radius: 50%;
       padding-right: 0;
       width: 40px;
@@ -235,7 +160,6 @@ body {
   
     .mobile-nav-active .navmenu {
       position: fixed;
-      /* overflow: hidden; */
       inset: 0;
       background: rgba(33, 37, 41, 0.8);
       transition: 0.3s;
@@ -250,7 +174,7 @@ body {
 @media (min-width: 1200px) {
     .navmenu {
         padding-left: 120px;
-    } /* change in small screen */
+    }
     .navmenu ul {
         padding: 0;
         margin: 0;
@@ -260,7 +184,7 @@ body {
     .navmenu>ul>li {
         white-space: nowrap;
         padding: 15px 20px;
-    } /* take out in small screen */
+    }
 }
 /*Footer*/
 .footer {
@@ -338,10 +262,8 @@ body {
 }
 @media (min-width: 1200px) {
     .enter-button {
-        /* background: linear-gradient(45deg, #70c7f2, #fefefe); */
         background: linear-gradient(45deg, #70c7f2, #0F42F5);
         box-shadow: 0px 6px 0px #0d2c80, 0px 15px 20px rgba(0, 0, 0, 0.6);
-        /* color: black;  */
         color: white;
         border: none; 
         padding: 12px; 
@@ -355,10 +277,8 @@ body {
 /* Minimized Desktop */
 @media (max-width: 1199px) {
     .enter-button {
-        /* background: linear-gradient(45deg, #70c7f2, #fefefe); */
         background: linear-gradient(45deg, #70c7f2, #0F42F5);
         box-shadow: 0px 6px 0px #0d2c80, 0px 15px 20px rgba(0, 0, 0, 0.6);
-        /* color: black;  */
         color: white;
         border: none; 
         padding: 12px; 
@@ -399,15 +319,6 @@ body {
 }
 /* Desktop */
 @media (min-width: 1200px) {
-
-    /* .headshot-image img {
-        width: 350px;
-        height: 475px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        border: 6px double rgba(15, 65, 245, 0.7);
-    } */
 
     .about-content, .about-content-one {
         display: flex;
