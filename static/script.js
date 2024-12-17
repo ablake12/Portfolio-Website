@@ -16,3 +16,26 @@ const collapseBtn = document.querySelector('.mobile-nav-toggle');
     collapseBtn.classList.toggle('bi-list');
   }
   collapseBtn.addEventListener('click', mobileNavToogle);
+
+
+// Get scroll button
+let topBtn = document.getElementById("scroll-top");
+
+// Show the button at 100px down the page
+window.onscroll = function() {
+  onScroll()
+};
+
+function onScroll() {
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    topBtn.style.display = "block";
+  } else {
+    topBtn.style.display = "none";
+  }
+}
+
+// When button is clicked go to top of the page
+function goToTop() {
+  document.body.scrollTop = 0; // Safari
+  document.documentElement.scrollTop = 0; // Chrome
+}
