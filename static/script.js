@@ -1,25 +1,13 @@
-// document.addEventListener('DOMContentLoaded', function () {
-//     const toggle = document.querySelector('.navbar-header a'); // Your toggle link
-//     const collapsibleMenu = document.querySelector('.navbar-collapse');
+const collapseBtn = document.querySelector('.mobile-nav-toggle');// select icon for mobile nav
 
-//     toggle.addEventListener('click', function (event) {
-//         event.preventDefault(); // Prevent the link's default behavior
-//         collapsibleMenu.classList.toggle('show'); // Toggle the visibility
-//     });
-// });
-
-const collapseBtn = document.querySelector('.mobile-nav-toggle');
-
-  function mobileNavToogle() {
-    document.querySelector('body').classList.toggle('mobile-nav-active');
-    collapseBtn.classList.toggle('bi-x');
-    collapseBtn.classList.toggle('bi-list');
-  }
-  collapseBtn.addEventListener('click', mobileNavToogle);
-
+function mobileNavCollapse() {
+  document.querySelector('body').classList.toggle('mobile-nav-active');// toggle html body when in collapse mode
+  collapseBtn.classList.toggle('bi-x'); // toggle exit icon when in collapse mode
+  collapseBtn.classList.toggle('bi-list');// toggle list icon when in collapse mode
+}
 
 // Get scroll button
-let topBtn = document.getElementById("scroll-top");
+let topBtn = document.getElementById("scroll-top"); // retrieve scroll top icon
 
 // Show the button at 100px down the page
 window.onscroll = function() {
@@ -28,9 +16,9 @@ window.onscroll = function() {
 
 function onScroll() {
   if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-    topBtn.style.display = "block";
+    topBtn.style.display = "block";// Display once the page scrolls to 100px
   } else {
-    topBtn.style.display = "none";
+    topBtn.style.display = "none"; // Don't display if it's at the top
   }
 }
 
