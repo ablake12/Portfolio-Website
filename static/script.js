@@ -27,3 +27,35 @@ function goToTop() {
   document.body.scrollTop = 0; // Safari
   document.documentElement.scrollTop = 0; // Chrome
 }
+
+// Fallback for Resume
+document.addEventListener("DOMContentLoaded", () => {
+  const pdfViewer = document.getElementById("pdf");
+  const pdfText = document.getElementById("pdf-text");
+
+  console.log(document.readyState)
+
+  // Set a timeout to check if the PDF iframe has loaded
+  setTimeout(() => {
+    // Check if the iframe is still empty or failed to load
+    if (pdfViewer.contentDocument.body.childElementCount === 0 || !pdfViewer.contentDocument) {
+      pdfViewer.style.display = "none"; // Hide iframe
+      pdfText.style.display = "block"; // Show fallback
+    }
+  }, 200); // 2 seconds timeout for load detection
+});
+
+// Fallback for spotify embeded songs
+// document.addEventListener("DOMContentLoaded", () => {
+//   const embeddedSongs = document.getElementsByClassName("song")
+//   const songText = document.getElementsByClassName("song-text")
+//   for (let i = 0; i < embeddedSongs.length; i++) {
+//     let song = embeddedSongs[i]
+//     setTimeout(() => {
+//       if (song.contentDocument.body.childElementCount === 0 || !song.contentDocument) {
+//         song.style.display = "none";
+//         songText.style.display = "block";
+//       }
+//     }, 500);
+//   }
+// });
