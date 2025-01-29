@@ -6,6 +6,10 @@ section {
 
 body {
     background-color: #EEFCFE; /* background color to the site */
+    display: flex;
+    flex-direction: column; /*stacks body vertically so the footer can be placed right under */
+    min-height: 100vh;
+    padding-bottom: 0; /* ensures no space between the body and footer */
 }
 
 .scroll-top {
@@ -230,13 +234,9 @@ body {
         height: 100%; /* to ensure the whole height is used */
         margin: 0;
     }
-    body {
-        display: block; 
-        padding-bottom: 0; /* to ensure there's no space between the footer */
-    }
     footer {
         position: relative;
-        margin-top: 0;
+        margin-top: auto;
     }
 }
 /* Home */
@@ -353,7 +353,7 @@ body {
         padding-left: 20px;
     }
     .photo-conference img {
-        margin-top: 7px; /* add space to the top margin to align with paragraph */
+        margin-top: 1px; /* add space to the top margin to align with paragraph */
         max-width: 225px;
         max-height: 230px;
         border:5px ridge rgba(250, 234, 21, 0.45);
@@ -371,7 +371,7 @@ body {
     }
 
     .photo-italy img {
-        margin-top: 20px; /* add space to the top margin to align with paragraph */
+        margin-top: 7px; /* add space to the top margin to align with paragraph */
         width: 180px;
         max-height: 175px;
         border: 5px groove rgba(110, 231, 255, 0.7);
@@ -417,7 +417,7 @@ body {
         display: block;
         margin-left: auto; /* to center */
         margin-right: auto; /* to center */
-        padding-bottom: 12px;
+        padding-bottom: 25px;
     }
 
     .photo-boule img {
@@ -435,7 +435,9 @@ body {
         margin-inline-end: 20px; /* add margin align to the end of paragraph */
         text-align: center; /* center for the mobile view */
     }
-
+    .photo-conference {
+        padding-bottom: 10px;
+    }
     .photo-conference img {
         max-width: 325px;
         max-height: 330px;
@@ -483,7 +485,9 @@ body {
 /* Resume */
 .pdf-text {
     text-align: center;
-    padding-top: 40px;
+    padding-top: 100px;
+    display: none;
+    font-size: 30px;
 }
 
 .pdf {
@@ -654,6 +658,13 @@ body {
 }
 
 /* Jams */
+
+/* .song-text {
+    text-align: center;
+    padding-top: 100px;
+    display: none;
+    font-size: 30px;
+} */
 /* Desktop view */
 @media (min-width: 1200px) {
     .jams-intro {
