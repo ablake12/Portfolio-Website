@@ -35,9 +35,11 @@
 
     <section>
       <div>
-        <object data="{{ url_for('static', filename='resume.pdf') }}" class="pdf" type="application/pdf">
+        <!-- <object data="{{ url_for('static', filename='resume.pdf') }}" class="pdf">
           <p class="pdf-text">Unable to display PDF file. <a href="/resume.pdf">Download</a> instead.</p>
-        </object>
+        </object> -->
+        <iframe src="{{ url_for('static', filename='resume.pdf') }}" id="pdf" class="pdf" type="application/pdf"></iframe>
+        <p id="pdf-text" class="pdf-text">Unable to display PDF file. Please <a href="{{ url_for('static', filename='resume.pdf') }}">Download</a> instead.</p>
       </div>
     </section>
 
