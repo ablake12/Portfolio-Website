@@ -1,4 +1,4 @@
-# Personal-Website
+# Portfolio-Website
 
 ## To run locally:
 1. Open the terminal and navigate to the website directory:
