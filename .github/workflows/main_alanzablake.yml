@@ -69,7 +69,6 @@ jobs:
         uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_22617F0883A149D68FB9E7651598F3D9 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
