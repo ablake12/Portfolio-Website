@@ -1,0 +1,998 @@
+/* styles.css */
+section {
+    flex-grow: 1; /* Fills the available space */
+    padding-bottom: 0; /* leaves no space between the section and border */
+}
+
+body {
+    background-color: #EEFCFE; /* background color to the site */
+    display: flex;
+    flex-direction: column; /*stacks body vertically so the footer can be placed right under */
+    min-height: 100vh;
+    padding-bottom: 0; /* ensures no space between the body and footer */
+}
+
+.scroll-top {
+    color: white;
+    border: 1px solid #41a9c9; /* add border to make it a circular button */
+    background-color: #41a9c9;
+    border-radius: 50%; /* make border circular */
+    position: fixed; /* stays fixed at the bottom */
+    display: none; /* defaulted as display none until the onScroll function in javascript is activated */
+    width: 45px; /* width of the button */
+    height: 45px; /* height of the button */
+    font-size: 23px; /* font size of the chevron up icon */
+    bottom: 50px; /* keep at the bottom of the page */
+    z-index: 99; /* brings button to the front of the page */
+    right: 40px; /* keep to the right of the page */
+    text-align: center; /* center the chevron up icon */
+    padding-top: 3px; /* centers the icon there */
+    cursor: pointer; /* turns into pointer when on the button */
+    transition: all 0.8s; /* transition as it hovers */
+}
+
+.scroll-top:hover, .scroll-top.active {
+    opacity: 85%; /* make color transparent when hovering */
+}
+
+/*Header/Nav bar*/
+.header {
+    color: black;
+    background-color: #C2F0FF;
+    padding: 6px 0; /* add height to border */
+}
+
+.sitename {
+    font-size: 32px; /* font size for logo button */
+    margin: 0;
+    font-weight: 300; /* bolden logo */
+    color: Black;
+}
+
+.logo {
+    text-decoration: none; /* to remove underline from hyperlink */
+    font-family: 'Rochester', cursive;
+}
+
+.header-social-links {
+    padding-right: 15px; /* add padding from the end of the border */
+}
+
+.header-social-links a {
+    color: black;
+    padding-left: 8px; /* add padding between each social media links */
+    font-size: 20px; /* font size for social media links */
+}
+.navmenu a:hover {
+    color: #17a3ce; /* different color for hover to distinct from the others */
+}
+
+.navmenu a.active {
+    color: #0F42F5; /* different color for the current page to distinct from the others */
+}
+.navmenu a {
+    display: flex;
+    color: black;
+    font-size: 15px;
+    text-decoration: none; /* to remove underline from hyperlink */
+    padding: 0 6px; /* add spacing between pages */
+} 
+/* Mobile/Minimized Desktop */
+@media (max-width: 1199px) {
+    .mobile-nav-toggle {
+      color: black;
+      font-size: 28px;
+      padding-right: 10px;
+      cursor: pointer; /* turns into pointer when on the button */
+    }
+  
+    .navmenu {
+      padding: 0;
+      z-index: 1000; /* brings mobile nav to the front of the page */
+    }
+    
+    .navmenu ul {
+      display: none;
+      position: absolute; /* add absolute position to exit button */
+      padding: 20px 0;
+      inset: 80px 15px 5px 25px; /* size of the mobile nav */
+      background-color: white;
+      opacity: 90%; /* add a little transparency */
+      border: 1px solid white;
+      border-radius: 10px;
+      box-shadow: none;
+      overflow-y: auto;
+      z-index: 5000;
+    }
+  
+    .navmenu a {
+      color: black;
+      padding: 15px 20px;
+      font-size: 25px;
+      font-weight: 500; /* bolden nav pages */
+      display: block;
+      text-align: center; /* center pages in nav*/
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap; /* so text doesn't go to the next line */
+      margin-bottom: 35px;
+      padding-left: 35px;
+    }
+  
+    .navmenu a i{
+      font-size: 12px;
+      width: 30px;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+  
+    .navmenu a:hover {
+      color: #17a3ce; /* different color for hover to distinct from the others */
+    }
+
+    .navmenu .active:hover {
+        color: #0F42F5; /* different color for the current page to distinct from the others */
+    }
+  
+    .mobile-nav-active .mobile-nav-toggle {
+      color: white;
+      position: absolute;
+      top: 15px; /* ensure exit button is at the top */
+      display: flex;
+      margin: 0 10px;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      border: 1px solid #41a9c9;
+      background-color: #41a9c9;
+      transform: translateX(-50%); /* center to the middle */
+      left: 50.4%; /* center to the middle */
+      border-radius: 50%; /* make exit button circular */
+      padding-right: 0;
+      width: 40px; /* button width */
+      height: 40px; /* button height */
+      font-size: 40px; /* font size for the x icon */
+    }
+  
+    .mobile-nav-active .navmenu {
+      position: fixed;
+      inset: 0;
+      background: rgba(33, 37, 41, 0.8);
+      transition: 0.3s;
+      text-align: center;
+    }
+  
+    .mobile-nav-active .navmenu>ul {
+      display: block;
+    }
+}
+/* Desktop Nav View */
+@media (min-width: 1200px) {
+    .mobile-nav-toggle {
+        display: none;
+    }
+    .navmenu {
+        padding-left: 120px;
+    }
+    .navmenu ul {
+        padding: 0;
+        margin: 0;
+        list-style: none; /* to nav doesn't have bullet points */
+        display: flex;
+    }
+    .navmenu>ul>li {
+        white-space: nowrap; /* so text doesn't go to the next line */
+        padding: 15px 20px;
+    }
+}
+/*Footer*/
+.footer {
+    color: black;
+    background-color: #C2F0FF;
+    font-size: 14px;
+    position: relative;
+    display: flex;
+    padding-left: 70px;
+}
+  
+  .footer .copyright p {
+    margin-bottom: 0;
+    font-size: 14px;
+    padding-top: 10px;
+  }
+  
+  .footer .social-links {
+    margin-top: 15px;
+    padding: 5px;
+  }
+  
+  .footer .social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: white;
+    box-sizing: border-box;
+    border: 1px solid #41a9c9;
+    background-color: #41a9c9;
+    border-radius: 50%; /* make social media buttons circular */
+    width: 40px; /* button width */
+    height: 40px; /* button height */
+    margin: 0 10px;
+  }
+  
+  .footer .credits {
+    margin-top: 10px;
+    font-size: 13px;
+    text-align: center; /* center content in footer */
+    padding-bottom: 15px;
+  }
+@media (max-width: 1199px) {
+    html, body {
+        height: 100%; /* to ensure the whole height is used */
+        margin: 0;
+    }
+    footer {
+        position: relative;
+        margin-top: auto;
+    }
+}
+/* Home */
+.grad-photo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.grad-photo img {
+    width: 100%; /* image takes up the whole width */
+    height: 100%; /* image takes up the whole height */
+    opacity: 75%; /* add transparency to the picture */
+}
+#enter {
+    position: absolute;
+    z-index: 1; /* put enter button to the front */
+    padding-top: 150px;
+}
+.enter-button:active {
+    transform: scale(0.95); /* gives a click effect by shrinking when active */
+}
+@media (min-width: 1200px) {
+    .enter-button {
+        background: linear-gradient(45deg, #70c7f2, #0F42F5); /* add gradient color */
+        box-shadow: 0px 6px 0px #0d2c80, 0px 15px 20px rgba(0, 0, 0, 0.6); /* add shadow to button */
+        color: white;
+        border: none; 
+        padding: 12px; 
+        font-size: 85px; 
+        font-family: 'Rochester', cursive;
+        cursor: pointer; /* turns into pointer when on the button */
+        border-radius: 100px; 
+        margin: 45px auto 0;
+    }
+}
+/* Minimized/mobile Desktop */
+@media (max-width: 1199px) {
+    /* change enter button based on smaller size screen */
+    .enter-button {
+        background: linear-gradient(45deg, #70c7f2, #0F42F5); /* add gradient color */
+        box-shadow: 0px 6px 0px #0d2c80, 0px 15px 20px rgba(0, 0, 0, 0.6); /* add shadow to button */
+        color: white;
+        border: none; 
+        padding: 12px; 
+        font-size: 50px; 
+        font-family: 'Rochester', cursive;
+        cursor: pointer; /* turns into pointer when on the button */
+        border-radius: 100px; 
+        margin: 45px auto 0;
+    }
+}
+
+/* About */
+.indent {
+    text-indent: 30px; /* indent all the paragraphs */
+}
+
+.headshot-image img {
+    width: 350px;
+    height: 475px;
+    display: block;
+    margin-left: auto; /* to center */
+    margin-right: auto; /* to center */
+    border: 6px double rgba(15, 65, 245, 0.7); /* add border to headshot image */
+}
+
+.headshot-image {
+    padding-top: 25px; /* add padding to top so picture isn't right under header */
+}
+
+.about-content, .about-content-one, .about-content-two p {
+    font-size: 20px;
+    color: black;
+    font-family: 'Ruwudu', regular;
+    font-variant-numeric: lining-nums;
+}
+/* Desktop view */
+@media (min-width: 1200px) {
+
+    .about-content, .about-content-one {
+        display: flex;
+        align-items: flex-start;
+    }
+    .about-content-two { /* This content is for the mobile view only so will be ignored */
+        display: none;
+    }
+
+    .about-text-one {
+        flex: 100%;
+        padding-left: 20px;
+        padding-top: 25px;
+    }
+
+    .photo-boule {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .photo-boule img {
+        margin-top: 20px; /* add space to the top margin to align with paragraph */
+        max-width: 245px;
+        height: 350px;
+        border:5px outset rgba(248, 172, 219, 0.7);
+    }
+
+    .about-text-two {
+        flex: 100%;
+        padding-left: 20px;
+        margin-inline-end: 20px; /* add margin align to the end of paragraph */
+    }
+
+    .photo-conference {
+        padding-left: 20px;
+    }
+    .photo-conference img {
+        margin-top: 1px; /* add space to the top margin to align with paragraph */
+        max-width: 225px;
+        max-height: 230px;
+        border:5px ridge rgba(250, 234, 21, 0.45);
+    }
+    .about-text-three {
+        flex: 100%;
+        padding-left: 20px;
+        padding-top: 20px;
+        margin-inline-end: 10px; /* add margin align to the end of paragraph */
+    }
+
+    .photo-italy {
+        padding-right: 15px;
+        padding-top: 4px;
+    }
+
+    .photo-italy img {
+        margin-top: 7px; /* add space to the top margin to align with paragraph */
+        width: 180px;
+        max-height: 175px;
+        border: 5px groove rgba(110, 231, 255, 0.7);
+    }
+
+    .about-text-four {
+        flex: 100%;
+        padding-top: 20px;
+        padding-left: 20px;
+        margin-inline-end: 20px; /* add margin align to the end of paragraph */
+    }
+
+    .about-text-five {
+        flex: 100%;
+        padding-top: 5px;
+        padding-left: 20px;
+        font-size: 20px;
+        color: black;
+        font-family: 'Ruwudu', regular;
+    }
+}
+/* Mobile view */
+@media (max-width: 1199px) {
+    .headshot-image {
+        padding-top: 25px;
+    }
+    .about-content, .about-content-two {
+        flex-direction: column;
+        align-items: center;
+    }
+    .about-content-one { /* This content is for the desktop view only so will be ignored */
+        display: none;
+    }
+    .about-text-one {
+        flex: 100%;
+        padding-left: 20px;
+        padding-top: 20px;
+        margin-inline-end: 20px; /* add margin align to the end of paragraph */
+        text-align: center;
+    }
+
+    .photo-boule {
+        display: block;
+        margin-left: auto; /* to center */
+        margin-right: auto; /* to center */
+        padding-bottom: 25px;
+    }
+
+    .photo-boule img {
+        max-width: 245px;
+        height: 350px;
+        border:5px outset rgba(248, 172, 219, 0.7);
+        display: block;
+        margin-left: auto; /* to center */
+        margin-right: auto; /* to center */
+    }
+
+    .about-text-two {
+        flex: 100%;
+        padding-left: 20px;
+        margin-inline-end: 20px; /* add margin align to the end of paragraph */
+        text-align: center; /* center for the mobile view */
+    }
+    .photo-conference {
+        padding-bottom: 10px;
+    }
+    .photo-conference img {
+        max-width: 325px;
+        max-height: 330px;
+        border:5px ridge rgba(250, 234, 21, 0.45);
+        display: block;
+        margin-left: auto; /* to center */
+        margin-right: auto; /* to center */
+    }
+    .about-text-three {
+        flex: 100%;
+        padding-left: 20px;
+        padding-top: 20px;
+        margin-inline-end: 20px; /* add margin align to the end of paragraph */
+        text-align: center; /* center for the mobile view */
+    }
+
+
+    .photo-italy img {
+        width: 225px;
+        max-height: 220px;
+        border:5px groove rgba(110, 231, 255, 0.7);
+        display: block;
+        margin-left: auto; /* to center */
+        margin-right: auto; /* to center */
+    }
+
+    .about-text-four {
+        flex: 100%;
+        padding-top: 20px;
+        margin-inline-end: 20px; /* add margin align to the end of paragraph */
+        text-align: center; /* center for the mobile view */
+    }
+
+    .about-text-five {
+        flex: 100%;
+        padding-top: 5px;
+        font-size: 20px;
+        color: black;
+        font-family: 'Ruwudu', regular;
+        text-align: center; /* center for the mobile view */
+        margin-inline-end: 20px; /* add margin align to the end of paragraph */
+    }
+}
+
+/* Resume */
+.pdf-text {
+    text-align: center;
+    padding-top: 100px;
+    display: none;
+    font-size: 30px;
+}
+
+.pdf {
+    width: 100%; /* pdf viewer takes up 100% of the page */
+    min-height: 600px; /* takes up the height for the body */
+    display: block;
+}
+
+/* Portfolio */
+/* Desktop view */
+@media (min-width: 1200px) {
+    .portfolio-mobile {
+        display: none; /* Different table for the mobile view. Will be ignored since this is the desktop view */
+    }
+    .portfolio p {
+        font-family: 'Orbitron', sans-serif;
+        text-align: center;
+        padding-top: 25px;
+        font-size: 14px;
+        letter-spacing: 1px;
+        font-variant-numeric: lining-nums;
+    }
+
+    .portfolio table {
+        width: 96%;
+        border-collapse: separate;
+        margin: 25px 0;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 18px;
+        text-align: left;
+        box-shadow: 0px 0px 0px 4px #dddddd; /* used as an outline so the corners don't pop out of the outline */
+        border-radius: 25px;
+        border-spacing: 0;
+        overflow: hidden;
+    }
+
+    .portfolio th:first-child {
+        border-top-left-radius: 25px; /* rounds the top left corner */
+    }
+
+    .portfolio th:last-child {
+        border-top-right-radius: 25px; /* rounds the top right corner */
+    }
+
+    .portfolio tr:last-child td:first-child {
+        border-bottom-left-radius: 25px; /* rounds the bottom left corner */
+    }
+
+    .portfolio tr:last-child td:last-child {
+        border-bottom-right-radius: 25px; /* rounds the bottom right corner */
+    }
+
+    .portfolio td {
+        padding: 5px;
+        border: 2px solid #dddddd; /* add lines to the columns */
+    }
+
+    .portfolio th {
+        padding: 10px;
+        background-color: #f2f2f2;
+        border: 2px solid #dddddd; /* add lines to the header row */
+        text-align: center;
+    }
+    .portfolio tr {
+        border: 2px solid #dddddd; /* add lines to the rows */
+    }
+
+    .portfolio tr:hover {
+        background-color: #ffffff; /* color for the project that's being hovered over */
+    }
+
+    .portfolio .proj-name {
+        width: 15%;
+        text-align: center;
+    }
+
+    .portfolio .proj-desc {
+        width: 40%; /* bigger width for the description column */
+    }
+    .portfolio .proj-url {
+        width: 5%;
+    }
+    .portfolio .proj-tech {
+        width: 15%;
+    }
+    .portfolio .proj-demo {
+        width: 10%;
+        text-align: center;
+    }
+}
+/* Mobile view */
+@media (max-width: 1199px) {
+    .portfolio {
+        display: none; /* Different table for the desktop view. Will be ignored since this is the mobile view */
+    }
+    .portfolio-mobile p {
+        font-family: 'Orbitron';
+        text-align: center;
+        padding-top: 25px;
+        font-size: 14px;
+        letter-spacing: 1px;
+        margin-inline-start: 15px;
+        margin-inline-end: 15px; /* add margin align to the end of paragraph */
+    }
+
+    .portfolio-mobile table {
+        width: 96%; /* to give space between ends */
+        border-collapse: separate;
+        margin: 25px 0;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 18px;
+        text-align: left;
+        /* outline: 2px solid #dddddd; */
+        box-shadow: 0px 0px 0px 4px #dddddd; /* used as an outline so the corners don't pop out of the outline */
+        border-radius: 25px;
+        border-spacing: 0;
+        overflow: hidden;
+    }
+
+    .portfolio-mobile th:first-child {
+        border-top-left-radius: 25px; /* rounds the top left corner */
+    }
+
+    .portfolio-mobile th:last-child {
+        border-top-right-radius: 25px; /* rounds the top right corner */
+    }
+
+    .portfolio-mobile tr:last-child td:first-child {
+        border-bottom-left-radius: 25px; /* rounds the bottom left corner */
+    }
+
+    .portfolio-mobile tr:last-child td:last-child {
+        border-bottom-right-radius: 25px; /* rounds the bottom right corner */
+    }
+
+    .portfolio-mobile td {
+        padding: 5px;
+        border: 2px solid #dddddd; /* add lines to the columns */
+    }
+
+    .portfolio-mobile th {
+        padding: 10px;
+        background-color: #f2f2f2;
+        border: 2px solid #dddddd; /* add lines to the header row */
+        text-align: center;
+    }
+    .portfolio-mobile tr {
+        border: 2px solid #dddddd; /* add lines to the rows */
+    }
+
+    .portfolio-mobile tr:hover {
+        background-color: #ffffff; /* color for the project that's being hovered over */
+    }
+
+    .portfolio-mobile .proj-name {
+        width: 15%;
+        text-align: center;
+    }
+
+    .portfolio-mobile .proj-desc {
+        width: 40%; /* bigger width for the description column */
+    }
+    .portfolio-mobile .proj-tech {
+        width: 5%;
+    }
+}
+
+/* Jams */
+
+/* .song-text {
+    text-align: center;
+    padding-top: 100px;
+    display: none;
+    font-size: 30px;
+} */
+/* Desktop view */
+@media (min-width: 1200px) {
+    .jams-intro {
+        text-align: center;
+        font-family: 'Arsenal', sans-serif;
+        font-weight: 700;
+        padding-top: 15px;
+        font-size: 20px
+    }
+
+    .songs iframe {
+        border-radius: 12px;
+        width: 100%; /* takes up the entire width */
+        height: 80px;
+    }
+    .songs-mobile {
+        display: none; /* songs div container for the mobile view will be ignored in the desktop view */
+    }
+}
+/* Mobile view */
+@media (max-width: 1199px) {
+    .jams-intro {
+        text-align: center;
+        font-family: 'Arsenal', sans-serif;
+        font-weight: 700;
+        padding-top: 15px;
+        font-size: 20px
+    }
+
+    .songs-mobile {
+        margin: 0 auto;
+    }
+
+    .songs-mobile iframe {
+        border-radius:12px;
+        width: auto; /* width is adjusted based on the screen size */
+        height: 80px;
+    }
+    .songs {
+        display: none; /* songs div container for the desktop view will be ignored in the mobile/minimized view */
+    }
+}
+
+/* Contact */
+.contact-info .form-group .name label::after,
+.contact-info .form-group .email label::after,
+.message-info .form-group .form-message label::after {
+    content: "*"; /* red asterick for the required fields */
+    color: red;
+    margin-left: 2px;
+    font-size: 15px;
+}
+/* Desktop view */
+@media (min-width: 1200px) {
+    .contact {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%; /* all the contact information takes up all the space */
+    }
+    .contact-socials {
+        padding-top: 20px;
+        padding-left: 35px;
+        padding-right: 10px;
+    }
+    .socials-background {
+        padding-top: 7px;
+        padding-bottom: 7px;
+        padding-left: 8px;
+        padding-right: 16px;
+        outline: 1px solid #ffffff;
+        filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25)); /* add a shadow to the social media container */
+        background: white;
+    }
+    .contact-socials a {
+        color: black;
+        padding-left: 9px; /* to center */
+        display: inline-block;
+        font-size: 32px;
+        padding-bottom: 13px; /* to center */
+        padding-top: 15px; /* to center */
+    }
+    .contact-form {
+        flex: 1; /* takes up most of the space */
+        padding-top: 20px;
+        padding-bottom: 40px;
+        padding-right: 15px;
+    }
+    .form-background {
+        outline: 1px solid #ffffff;
+        width: 96%;
+        min-height: 700px;
+        display: flex;
+        flex-direction: column; /* displays form fields in vertical direction */
+        margin: auto;
+        padding-top: 20px;
+        background: white;
+        filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25)); /* add a shadow to the form container */
+    }
+    .form-background h2 { /* header for the form */
+        /* font-family: "Dancing Script"; */
+        /* font-family: "Parisienne"; */
+        /* font-family: "Yellowtail"; */
+        font-family: "Rochester";
+        text-align: center;
+        font-size: 47px;
+        color: #17a3ce;
+        font-weight: 100px;
+    }
+    .form-background p { /* paragraph in the form */
+        text-align: center;
+        font-family: Georgia;
+    }
+    .contact-info { /* covers name and email fields */
+        display: flex; /* aligns the fields horizontally */
+        align-items: flex-start;
+    }
+    .contact-info label {
+        padding-bottom: 5px;
+        font-weight: 700;
+        font-size: 18px;
+    }
+    .contact-info input {
+        outline: 1px solid #000000;
+        border-radius: 0;
+    }
+    .contact-info .form-group {
+        width: 50%;
+    }
+    .contact-info .form-group .name {
+        padding-left: 63px;
+        padding-right: 25px;
+        padding-top: 15px;
+    }
+    .contact-info .form-group .email {
+        padding-right: 63px;
+        padding-top: 15px;
+    }
+    .message-info { /* covers subject and message fields */
+        padding-top: 15px;
+        display: grid;
+        place-items: center; /* centers fields */
+    }
+    .message-info label {
+        padding-bottom: 5px; /* padding between label and input */
+        font-weight: 700;
+        font-size: 18px;
+    }
+    .message-info input {
+        outline: 1px solid #000000;
+        border-radius: 0;
+    }
+    .message-info textarea {
+        outline: 1px solid #000000;
+        border-radius: 0;
+    }
+    .message-info .form-group {
+        width: 90%;
+    }
+    .message-info .form-group .subject {
+        padding-top: 25px; /* padding above subject */
+    }
+    .message-info .form-group .form-message {
+        padding-top: 25px; /* padding above message */
+    }
+    .message-info .form-group .form-message textarea{
+        height: 250px;
+    }
+    .form-btn {
+        padding-top: 13px;
+        padding-bottom: 12px;
+        margin-top: auto; /* space between fields and button */
+        text-align: center;
+    }
+    .form-btn button{
+        background: #0020C0;
+        opacity: 80%; /* add opacity to color */
+        display: block;
+        width: 400px;
+        font-size: 18px;
+        padding-left: 10px;
+        margin: 0 auto; /* to center */
+    }
+}
+/* Mobile view */
+@media (max-width: 1199px) {
+    .contact {
+        display: flex;
+        flex-direction: column; /* displays containers vertically */
+        align-items: center;
+        width: 100%;
+    }
+    .contact-socials {
+        padding-top: 20px;
+        padding-left: 25px;
+        padding-right: 10px;
+    }
+    .socials-background {
+        outline: 1px solid #ffffff;
+        filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25)); /* add a shadow to the social media container */
+        background: white;
+        display: flex;
+        align-items: flex-start;
+    }
+    .contact-socials a {
+        color: black;
+        display: inline-block;
+        font-size: 32px;
+        padding: 20px;
+    }
+    .contact-form {
+        flex: 1; /* takes up most of the space */
+        padding-top: 20px;
+        padding-bottom: 40px;
+        padding-right: 20px;
+        padding-left: 20px;
+        width: 100%;
+    }
+    .form-background {
+        outline: 1px solid #ffffff;
+        width: 100%;
+        min-height: 700px;
+        display: flex;
+        flex-direction: column; /* displays form fields in vertical direction */
+        margin: auto;
+        padding-top: 20px;
+        background: white;
+        filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25)); /* add a shadow to the form container */
+    }
+    .form-background h2 { /* header for the form */
+        /* font-family: "Dancing Script"; */
+        /* font-family: "Parisienne"; */
+        /* font-family: "Yellowtail"; */
+        font-family: "Rochester";
+        text-align: center;
+        font-size: 47px;
+        color: #17a3ce;
+        font-weight: 100px;
+        padding-left: 10px;
+
+    }
+    .form-background p { /* paragraph in the form */
+        text-align: center;
+        font-family: Georgia;
+        padding-top: 20px;
+        padding-left: 5px;
+    }
+    .contact-info { /* covers name and email fields */
+        display: grid; /* aligns the fields horizontally */
+        place-items: center;
+    }
+    .contact-info label {
+        padding-bottom: 5px;
+        font-weight: 700;
+        font-size: 18px;
+    }
+    .contact-info input {
+        outline: 1px solid #000000;
+        border-radius: 0;
+    }
+    .contact-info .form-group {
+        width: 90%;
+        /* text-align: center; */
+    }
+    .contact-info .form-group .name {
+        /* padding-left: 25px;
+        padding-right: 25px; */
+        /* text-align: center; */
+        padding-top: 15px;
+        
+    }
+    .contact-info .form-group .email {
+        padding-top: 15px;
+    }
+    .message-info { /* covers subject and message fields */
+        padding-top: 15px;
+        display: grid;
+        place-items: center; /* centers fields */
+    }
+    .message-info label {
+        padding-bottom: 5px; /* padding between label and input */
+        font-weight: 700;
+        font-size: 18px;
+    }
+    .message-info input {
+        outline: 1px solid #000000;
+        border-radius: 0;
+    }
+    .message-info textarea {
+        outline: 1px solid #000000;
+        border-radius: 0;
+    }
+    .message-info .form-group {
+        width: 90%;
+        /* text-align: center; */
+    }
+    .message-info .form-group .subject {
+        padding-top: 5px; /* padding above subject */
+    }
+    .message-info .form-group .form-message {
+        padding-top: 25px; /* padding above message */
+    }
+    .message-info .form-group .form-message textarea{
+        height: 250px;
+    }
+    .form-btn {
+        padding-top: 13px;
+        padding-bottom: 12px;
+        margin-top: auto; /* space between fields and button */
+        text-align: center;
+    }
+    .form-btn button{
+        background: #0020C0;
+        opacity: 80%; /* add opacity to color */
+        display: block;
+        width: 350px;
+        font-size: 18px;
+        padding-left: 10px;
+        margin: 0 auto; /* to center */
+    }
+}
+
+/* Submitted */
+.form-background .return-message {
+    text-align: center;
+    font-family: Georgia;
+    padding-top: 50px;
+    font-size: 20px;
+    margin-inline-end: 15px; /* add margin align to the end of message */
+    padding-left: 12px;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Import fonts and css sheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Rochester&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Contact Form -->
+    <header id="header" class="header align-items-center sticky-top">
+        <div class="container-fluid d-flex align-items-center justify-content-between">
+          <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
+            <h1 class="sitename">Alanza</h1>
+          </a>
+          <nav id="navmenu" class="navmenu">
+            <ul>
+              <li><a href="/"><b>Home</b></a></li>
+              <li><a href="/about"><b>About</b></a></li>
+              <li><a href="/resume"><b>Resume</b></a></li>
+              <li><a href="/portfolio"><b>Portfolio</b></a></li>
+              <li><a href="/jams"><b>Jams</b></a></li>
+              <li><a href="/contact" class="active"><b>Contact</b></a></li>
+            </ul>
+            <i class="mobile-nav-toggle bi bi-list" onclick="mobileNavCollapse()"></i>
+          </nav>
+        <div class="header-social-links">
+          <a href="https://www.instagram.com/alanzablake" target="_blank"><i class="bi bi-instagram"></i></a>
+          <a href="https://github.com/ablake12/" target="_blank"><i class="bi bi-github"></i></a>
+          <a href="https://www.linkedin.com/in/ablake12/" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+        </div>
+    </header>
+    <section>
+        <div class="contact">
+          <!-- Div that covers the small rectangle with the social media icons -->
+          <div class="contact-socials">
+            <div class="socials-background">
+              <div class="contact-email">
+                <a href="mailto:alanzablake@gmail.com"><i class="bi bi-envelope-fill"></i></a>
+              </div>
+              <div class="contact-linkedin">
+                <a href="https://www.linkedin.com/in/ablake12/" target="_blank"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+          <!-- Div that covers the actual contact form -->
+          <div class="contact-form">
+            <div class="form-background">
+              <h2>Contact Me</h2>
+              <!-- Return success or failure message from Python -->
+              <p class="return-message">{{ return_message }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+    <footer id="footer" class="footer">
+      <div class="container">
+        <div class="copyright text-center">
+          <p>© <span>Copyright</span> <strong>Alanza</strong> <span>All Rights Reserved<br></span></p>
+        </div>
+        <div class="social-links d-flex justify-content-center">
+          <a href="https://www.instagram.com/alanzablake" target="_blank"><i class="bi bi-instagram"></i></a>
+          <a href="https://github.com/ablake12/" target="_blank"><i class="bi bi-github"></i></a>
+          <a href="https://www.linkedin.com/in/ablake12/" target="_blank"><i class="bi bi-linkedin"></i></a>
+        </div>
+        <div class="credits">
+          Designed with <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>
+        </div>
+      </div>
+    </footer>
+    <a id="scroll-top" class="scroll-top" onclick="goToTop()"><i class="bi bi-chevron-up"></i></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
