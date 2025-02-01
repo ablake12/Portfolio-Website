@@ -1,19 +1,21 @@
 # Portfolio-Website
+Hello! Welcome to my repository for my Portfolio website! Here is where I developed the code for my website!
 
-## To run locally:
-1. Open the terminal
-2. Export Mail Username/email either in terminal or in a .env file
-- export EMAIL_USERNAME=<username>
-3. Export Mail Password for Flask specifically. To generate this password, go to https://myaccount.google.com/u/1/apppasswords
-- export EMAIL_FLASK_PASSWORD=<generatedPassword>
-4. Run the requirements.txt
-```bash
-pip3 install -r requirements.txt
-```
-5. Run locally:
-- ```flask run```
- To debug:
-- ```python3 app.py```
-For other users:
-- ```flask run --host=0.0.0.0```
-6. Go to the given port and enjoy!
+## Wireframes
+I utilized Figma to create the wireframes for this website. Please check them out here:
+[Wireframes](wireframes/website-wireframes.pdf)
+
+## Tech Stack
+I programmed this website using the Python Flask framework on the backend. For the frontend, I used HTML for the pages, CSS for styling the pages, and Javascript for various interactive elements on the pages. Additionally, I integrated Bootstrap to enhance the design with responsive and modern styling.
+
+## Deployment
+For the deployment, I used the AWS Elastic Beanstalk service.
+
+## Pages
+I have 6 pages for my website. Home, About, Resume, Portfolio, Jams, and Resume. Please visit them at their respective routes!
+- Home - ```/```
+- About - ```/about```
+- Resume - ```/resume```
+- Portfolio - ```/portfolio```
+- Jams - ```/jams```
+- Contact - ```/contact```
