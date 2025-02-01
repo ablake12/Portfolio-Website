@@ -1,10 +1,9 @@
-
 *.pyc
 venv/
-.DS_Store
-static/.DS_Store
-text_files/
-.DS_Store
+website/.DS_Store
+website/static/.DS_Store
+website/projectstodo.txt
 .env
-templates/.DS_Store
-.DS_Store
+text_files/projectstodo.txt
+text_files/projectstodo.txt
+text_files/about_me.txt
