@@ -8,3 +8,4 @@ text_files/
 .env
 templates/.DS_Store
 .DS_Store
+README.md
