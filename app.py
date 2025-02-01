@@ -72,4 +72,4 @@ def submitted():
         return render_template('submitted.html', return_message = "Your message failed to submit due to an internal error. While I work to fix this issue, please reach out via email directly by clicking on the mail icon on the left side of this page. Thank you and I apologize for the inconvenience.")
 
 if __name__ == '__main__':
-    app.run(debug=True) # set to false in final commit
+    app.run(debug=False)
