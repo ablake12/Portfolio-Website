@@ -730,17 +730,40 @@ body {
 }
 
 /* Resume */
-.pdf-text {
-    text-align: center;
-    padding-top: 100px;
-    display: none;
-    font-size: 30px;
+@media (min-width: 1200px) {
+    .pdf-text {
+        text-align: center;
+        padding-top: 100px;
+        display: none;
+        font-size: 30px;
+    }
+
+    .pdf {
+        width: 100%; /* pdf viewer takes up 100% of the page */
+        min-height: 600px; /* takes up the height for the body */
+        display: block;
+    }
 }
 
-.pdf {
-    width: 100%; /* pdf viewer takes up 100% of the page */
-    min-height: 600px; /* takes up the height for the body */
-    display: block;
+@media (max-width: 1199px) {
+    .pdf-text {
+        text-align: center;
+        padding-top: 100px;
+        display: none;
+        font-size: 30px;
+    }
+
+    .pdf {
+        width: 100%; /* pdf viewer takes up 100% of the page */
+        min-height: 600px; /* takes up the height for the body */
+        display: block;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .pdf, .pdf-text {
+        display: none;
+    }
 }
 
 /* Portfolio */

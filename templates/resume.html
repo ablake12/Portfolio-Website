@@ -18,7 +18,8 @@
                 <ul>
                   <li><a href="/"><b>Home</b></a></li>
                   <li><a href="/about"><b>About</b></a></li>
-                  <li><a href="/resume" class="active"><b>Resume</b></a></li>
+                  <li><a href="/resume" class="active desktop-resume"><b>Resume</b></a></li>
+                  <!-- <li><a href="{{ url_for('static', filename='resume.pdf') }}" class="mobile-resume" target="_blank"><b>Resume</b></a></li> -->
                   <li><a href="/portfolio"><b>Portfolio</b></a></li>
                   <li><a href="/jams"><b>Jams</b></a></li>
                   <li><a href="/contact"><b>Contact</b></a></li>
@@ -36,9 +37,7 @@
 
     <section>
       <div>
-        <!-- <iframe src="{{ url_for('static', filename='resume.pdf') }}" id="pdf" class="pdf" type="application/pdf"></iframe>
-        <p id="pdf-text" class="pdf-text">Unable to display PDF file. Please <a href="{{ url_for('static', filename='resume.pdf') }}">Download</a> instead.</p> -->
-        <embed src="{{ url_for('static', filename='resume.pdf') }}" id="pdf" class="pdf" type="application/pdf"></embed>
+        <iframe src="{{ url_for('static', filename='resume.pdf') }}" id="pdf" class="pdf" type="application/pdf"></iframe>
         <p id="pdf-text" class="pdf-text">Unable to display PDF file. Please <a href="{{ url_for('static', filename='resume.pdf') }}">Download</a> instead.</p>
       </div>
     </section>

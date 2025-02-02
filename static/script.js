@@ -28,6 +28,24 @@ function goToTop() {
   document.documentElement.scrollTop = 0; // Chrome
 }
 
+function mobileResume() {
+  const width = window.screen.width; // Width of the screen in pixels
+  const resumeUrl = document.querySelector(".desktop-resume");
+  if (resumeUrl) {
+    if (width <= 499) {
+      resumeUrl.href = "static/resume.pdf";
+      console.log("Updated href to resume.pdf");
+    }
+    else{
+      console.log("idk")
+    }
+  }
+}
+document.addEventListener("DOMContentLoaded", () => {
+  mobileResume();
+});
+document.addEventListener("resume", mobileResume)
+
 // Fallback for Resume
 document.addEventListener("DOMContentLoaded", () => {
   const pdfViewer = document.getElementById("pdf");
