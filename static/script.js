@@ -28,12 +28,14 @@ function goToTop() {
   document.documentElement.scrollTop = 0; // Chrome
 }
 
+// Handling resume for mobile view
 function mobileResume() {
   const width = window.screen.width; // Width of the screen in pixels
   const resumeUrl = document.querySelector(".desktop-resume");
   if (resumeUrl) {
     if (width <= 499) {
       resumeUrl.href = "static/resume.pdf";
+      resumeUrl.target = "_blank";
       console.log("Updated href to resume.pdf");
     }
     else{
