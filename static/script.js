@@ -56,10 +56,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Set a timeout to check if the PDF iframe has loaded
   setTimeout(() => {
     // Check if the iframe is still empty or failed to load
+    if (!pdfViewer.contentDocument.body.childElementCount === null || !pdfViewer.contentDocument === null){
+
     if (pdfViewer.contentDocument.body.childElementCount === 0 || !pdfViewer.contentDocument) {
       pdfViewer.style.display = "none"; // Hide iframe
       pdfText.style.display = "block"; // Show fallback
     }
+  }
   }, 200); // 2 seconds timeout for load detection
 });
 
