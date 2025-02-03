@@ -309,8 +309,8 @@ body {
     border: 1px solid #41a9c9;
     background-color: #41a9c9;
     border-radius: 50%; /* make social media buttons circular */
-    width: 40px; /* button width */
-    height: 40px; /* button height */
+    width: 42px; /* button width */
+    height: 42px; /* button height */
     margin: 0 10px;
   }
   
@@ -326,18 +326,20 @@ body {
         padding-left: 17px;
     }
     .footer .credits {
-        padding-left: 8px;
+        padding-left: 19px;
     }
 }  
 @media (max-width: 1199px) {
     .footer .copyright p {
         padding-top: 10px;
+        padding-right: 50px;
     }
     .footer .social-links {
-        padding-left: 15px;
+        /* padding-left: -10px; */
+        padding-right: 50px;
     }
     .footer .credits {
-        padding-left: 8px;
+        padding-right: 45px;
     }
 }
 @media screen and (max-width: 499px) {
@@ -345,10 +347,10 @@ body {
         padding-right: 60px;
     }
     .footer .social-links {
-        padding-right: 75px;
+        padding-right: 60px;
     }
     .footer .credits {
-        padding-right: 65px;
+        padding-right: 53px;
     }
 }
 
@@ -1006,12 +1008,6 @@ body {
 
 /* Jams */
 
-/* .song-text {
-    text-align: center;
-    padding-top: 100px;
-    display: none;
-    font-size: 30px;
-} */
 /* Desktop view */
 @media (min-width: 1200px) {
     .jams-intro {
@@ -1022,13 +1018,17 @@ body {
         font-size: 20px
     }
 
+    .songs {
+        text-align: center;
+        margin: 0 auto;
+    }
+
     .songs iframe {
         border-radius: 12px;
-        width: 100%; /* takes up the entire width */
+        width: 99%; /* takes up the entire width */
         height: 80px;
-    }
-    .songs-mobile {
-        display: none; /* songs div container for the mobile view will be ignored in the desktop view */
+        border: 1px solid #41a9c9;
+        background-color: #ffffff;
     }
 }
 /* Minimized view */
@@ -1041,18 +1041,18 @@ body {
         font-size: 20px
     }
 
-    .songs-mobile {
+    .songs {
+        text-align: center;
         margin: 0 auto;
     }
 
-    .songs-mobile iframe {
+    .songs iframe {
         border-radius:12px;
         height: 80px;
-        width: 550px;
+        width: 98%; /* takes up the entire width */
         margin: 0 auto;
-    }
-    .songs {
-        display: none; /* songs div container for the desktop view will be ignored in the mobile/minimized view */
+        border: 1px solid #41a9c9;
+        background-color: #ffffff;
     }
 }
 
@@ -1066,13 +1066,22 @@ body {
         font-size: 20px
     }
 
+    .songs {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .songs .fallback-song {
+        margin: 0 auto;
+        text-align: center;
+    }
+
     .songs iframe {
         border-radius: 12px;
-        width: 100%; /* takes up the entire width */
+        width: 98%; /* takes up the entire width */
         height: 80px;
-    }
-    .songs-mobile {
-        display: none; /* songs div container for the mobile view will be ignored in the desktop view */
+        border: 1px solid #41a9c9;
+        background-color: #ffffff;
     }
 }
 
@@ -1086,17 +1095,21 @@ body {
         font-size: 20px
     }
 
-    .songs-mobile {
+    .songs {
         margin: 0 auto;
+        text-align: center;
+    }
+    .songs .fallback-song {
+        margin: 0 auto;
+        text-align: center;
     }
 
-    .songs-mobile iframe {
+    .songs iframe {
         border-radius:12px;
-        width: auto; /* width is adjusted based on the screen size */
+        width: 90%; /* width is adjusted based on the screen size */
         height: 80px;
-    }
-    .songs {
-        display: none; /* songs div container for the desktop view will be ignored in the mobile/minimized view */
+        border: 1px solid #41a9c9;
+        background-color: #ffffff;
     }
 }
 
@@ -1424,9 +1437,6 @@ body {
         filter: drop-shadow(0px 4px 4px rgba(0,0,0,0.25)); /* add a shadow to the form container */
     }
     .form-background h2 { /* header for the form */
-        /* font-family: "Dancing Script"; */
-        /* font-family: "Parisienne"; */
-        /* font-family: "Yellowtail"; */
         font-family: "Rochester";
         text-align: center;
         font-size: 47px;
@@ -1459,9 +1469,6 @@ body {
         /* text-align: center; */
     }
     .contact-info .form-group .name {
-        /* padding-left: 25px;
-        padding-right: 25px; */
-        /* text-align: center; */
         padding-top: 15px;
         
     }
@@ -1509,7 +1516,7 @@ body {
         background: #0020C0;
         opacity: 80%; /* add opacity to color */
         display: block;
-        max-width: 350px;
+        max-width: 320px;
         width: 95%;
         font-size: 18px;
         padding-left: 10px;
