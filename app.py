@@ -54,6 +54,8 @@ def submitted():
         email = request.form.get("email")
         subject = request.form.get("subject")
         message = request.form.get("message")
+        if request.form.get("honeypot"):  
+            return render_template('submitted.html', return_message = "Message failed to send. \n 400 Http Error: Bad request")
 
         if subject == "" or subject is None:
             # subject = "Incoming Message From Website - No Subject"
