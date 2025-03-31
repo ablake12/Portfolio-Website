@@ -1,4 +1,5 @@
 import os
+import requests
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, send_file # import flask libraries
 from flask_mail import Mail, Message # import flask library for email
@@ -17,6 +18,10 @@ app.config['MAIL_DEFAULT_SENDER'] = os.getenv('EMAIL_USERNAME')
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 mail = Mail(app)
+
+# Recaptcha keys
+site_key = os.getenv('RECAPTCHA_SITE_KEY')
+secret_key = os.getenv('RECAPTCHA_SECRET_KEY')
 
 @app.route('/')# make this function run on the original route
 def home():
@@ -42,9 +47,14 @@ def project():
 def music():
     return render_template('music.html')
 
+def verify_recaptcha(response):
+    data = {"secret": secret_key, "response": response}
+    req = requests.post("https://www.google.com/recaptcha/api/siteverify", data=data)
+    return req.json().get("success", False)
+
 @app.route('/contact')#make this function run on the original route
 def contact():
-    return render_template('contact.html')#render html form
+    return render_template('contact.html', site_key=site_key)#render html form
 
 @app.route('/contact', methods = ['POST'])# html template for after submitting the form
 def submitted():
@@ -54,9 +64,15 @@ def submitted():
         email = request.form.get("email")
         subject = request.form.get("subject")
         message = request.form.get("message")
+        # Honeypot detection
         if request.form.get("honeypot"):  
             return render_template('submitted.html', return_message = "Message failed to send. \n 400 Http Error: Bad request")
 
+        # Recaptcha detection
+        recaptcha_response = request.form.get("g-recaptcha-response")
+        if not verify_recaptcha(recaptcha_response):
+            return render_template('submitted.html', return_message = "Message failed to send. \n 400 Http Error: Bad request")
+        
         if subject == "" or subject is None:
             # subject = "Incoming Message From Website - No Subject"
             subject = "No Subject"
