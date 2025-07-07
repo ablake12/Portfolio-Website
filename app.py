@@ -111,11 +111,11 @@ def submitted():
                 return render_template('submitted.html', return_message = "Message failed to send. \n 400 Http Error: Bad request")
         
         #Akismet detection
-        if os.getenv("TESTING") != "True":
-            if spam_detected(name, email, message, user_ip, user_agent):
-                timestamp = datetime.now()
-                log.info(f"Akismet detection at {timestamp}")
-                return render_template('submitted.html', return_message = "Message failed to send. \n 400 Http Error: Bad request")
+        # if os.getenv("TESTING") != "True":
+        #     if spam_detected(name, email, message, user_ip, user_agent):
+        #         timestamp = datetime.now()
+        #         log.info(f"Akismet detection at {timestamp}")
+        #         return render_template('submitted.html', return_message = "Message failed to send. \n 400 Http Error: Bad request")
         
         #Keyword detection
         SPAM_KEYWORDS = ["SEO", "Google ranking", "boost traffic", "backlinks"]
