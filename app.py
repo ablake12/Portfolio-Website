@@ -1,5 +1,6 @@
 import os
 import requests
+from datetime import datetime
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, send_file # import flask libraries
 from flask_mail import Mail, Message # import flask library for email
@@ -93,27 +94,37 @@ def submitted():
         # Various detections to block spam submissions
         # Honeypot detection
         if request.form.get("honeypot"):  
+            timestamp = datetime.now()
+            print(f"Honeypost detection at {timestamp}")
             return render_template('submitted.html', return_message = "Message failed to send. \n 400 Http Error: Bad request")
 
         # Recaptcha detection
-        recaptcha_response = request.form.get("g-recaptcha-response")
-        if not verify_recaptcha(recaptcha_response):
-            return render_template('submitted.html', return_message = "Message failed to send. \n 400 Http Error: Bad request")
+        if os.getenv("TESTING") != "True":
+            recaptcha_response = request.form.get("g-recaptcha-response")
+            if not verify_recaptcha(recaptcha_response):
+                timestamp = datetime.now()
+                print(f"Recaptcha detection at {timestamp}")
+                return render_template('submitted.html', return_message = "Message failed to send. \n 400 Http Error: Bad request")
         
         #Akismet detection
-        if spam_detected(name, email, message, user_ip, user_agent):
-            return render_template('submitted.html', return_message = "Message failed to send. \n 400 Http Error: Bad request")
+        if os.getenv("TESTING") != "True":
+            if spam_detected(name, email, message, user_ip, user_agent):
+                timestamp = datetime.now()
+                print(f"Akismet detection at {timestamp}")
+                return render_template('submitted.html', return_message = "Message failed to send. \n 400 Http Error: Bad request")
         
         #Keyword detection
         SPAM_KEYWORDS = ["SEO", "Google ranking", "boost traffic", "backlinks"]
         if any(word in message for word in SPAM_KEYWORDS):
+            timestamp = datetime.now()
+            print(f"Spam Keyword detection at {timestamp}")
             return render_template('submitted.html', return_message = "Message failed to send. \n 400 Http Error: Bad request")
 
         if subject == "" or subject is None:
-            # subject = "Incoming Message From Website - No Subject"
-            subject = "No Subject"
-        # else:
-        #     subject = f"Incoming Message From Website - {subject}"
+            subject = "Incoming Message From Website - No Subject"
+            # subject = "No Subject"
+        else:
+            subject = f"Incoming Message From Website - {subject}"
 
         # set recipient as self, reply to set to the actual recipient
         msg = Message(subject, recipients=[os.getenv('EMAIL_USERNAME')], reply_to=email)
