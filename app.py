@@ -52,6 +52,29 @@ def verify_recaptcha(response):
     req = requests.post("https://www.google.com/recaptcha/api/siteverify", data=data)
     return req.json().get("success", False)
 
+def spam_detected(user_ip, user_agent, name, email, message):
+    api_key = os.getenv("AKISMET_API_KEY")
+    domain = os.getenv("AKISMET_DOMAIN")
+
+    if api_key is None or domain == None:
+        return False
+    
+    api_url = f"https://{api_key}.rest.akismet.com/1.1/comment-check"
+
+    data = {
+        "blog": domain,
+        "user_ip": user_ip or "127.0.0.1",
+        "user_agent": user_agent or "unknown",
+        "comment_type": "contact-form",
+        "comment_author": name,
+        "comment_author_email": email,
+        "comment_content": message,
+    }
+
+    response = requests.post(api_url, data=data, headers={"User-Agent": "FlaskApp/1.0"})
+    return response.text == "true"
+
+
 @app.route('/contact')#make this function run on the original route
 def contact():
     return render_template('contact.html', site_key=site_key)#render html form
@@ -64,6 +87,10 @@ def submitted():
         email = request.form.get("email")
         subject = request.form.get("subject")
         message = request.form.get("message")
+
+        user_ip = request.remote_addr
+        user_agent = request.headers.get("User-Agent")
+        # Various detections to block spam submissions
         # Honeypot detection
         if request.form.get("honeypot"):  
             return render_template('submitted.html', return_message = "Message failed to send. \n 400 Http Error: Bad request")
@@ -73,6 +100,15 @@ def submitted():
         if not verify_recaptcha(recaptcha_response):
             return render_template('submitted.html', return_message = "Message failed to send. \n 400 Http Error: Bad request")
         
+        #Akismet detection
+        if spam_detected(name, email, message, user_ip, user_agent):
+            return render_template('submitted.html', return_message = "Message failed to send. \n 400 Http Error: Bad request")
+        
+        #Keyword detection
+        SPAM_KEYWORDS = ["SEO", "Google ranking", "boost traffic", "backlinks"]
+        if any(word in message for word in SPAM_KEYWORDS):
+            return render_template('submitted.html', return_message = "Message failed to send. \n 400 Http Error: Bad request")
+
         if subject == "" or subject is None:
             # subject = "Incoming Message From Website - No Subject"
             subject = "No Subject"
