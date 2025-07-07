@@ -1,5 +1,6 @@
 import os
 import requests
+import logging
 from datetime import datetime
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, send_file # import flask libraries
@@ -9,7 +10,10 @@ load_dotenv()
 
 app = Flask(__name__)# create Flask object
 mail = Mail(app) # initialize mail class
-   
+
+logging.basicConfig(level=logging.INFO)
+log = logging.getLogger(__name__)
+
 # Mail configuration
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
@@ -95,7 +99,7 @@ def submitted():
         # Honeypot detection
         if request.form.get("honeypot"):  
             timestamp = datetime.now()
-            print(f"Honeypost detection at {timestamp}")
+            log.info(f"Honeypost detection at {timestamp}")
             return render_template('submitted.html', return_message = "Message failed to send. \n 400 Http Error: Bad request")
 
         # Recaptcha detection
@@ -103,21 +107,21 @@ def submitted():
             recaptcha_response = request.form.get("g-recaptcha-response")
             if not verify_recaptcha(recaptcha_response):
                 timestamp = datetime.now()
-                print(f"Recaptcha detection at {timestamp}")
+                log.info(f"Recaptcha detection at {timestamp}")
                 return render_template('submitted.html', return_message = "Message failed to send. \n 400 Http Error: Bad request")
         
         #Akismet detection
         if os.getenv("TESTING") != "True":
             if spam_detected(name, email, message, user_ip, user_agent):
                 timestamp = datetime.now()
-                print(f"Akismet detection at {timestamp}")
+                log.info(f"Akismet detection at {timestamp}")
                 return render_template('submitted.html', return_message = "Message failed to send. \n 400 Http Error: Bad request")
         
         #Keyword detection
         SPAM_KEYWORDS = ["SEO", "Google ranking", "boost traffic", "backlinks"]
         if any(word in message for word in SPAM_KEYWORDS):
             timestamp = datetime.now()
-            print(f"Spam Keyword detection at {timestamp}")
+            log.info(f"Spam Keyword detection at {timestamp}")
             return render_template('submitted.html', return_message = "Message failed to send. \n 400 Http Error: Bad request")
 
         if subject == "" or subject is None:
@@ -133,7 +137,7 @@ def submitted():
 
         return render_template('submitted.html', return_message = "Your message was submitted successfully!")
     except Exception as error:
-        print(f"Error: {error}")
+        log.info(f"Error: {error}")
         return render_template('submitted.html', return_message = "Your message failed to submit due to an internal error. While I work to fix this issue, please reach out via email directly by clicking on the mail icon on the left side of this page. Thank you and I apologize for the inconvenience.")
 
 if __name__ == '__main__':
