@@ -1366,6 +1366,7 @@ body {
     .message-info textarea {
         outline: 1px solid #000000;
         border-radius: 0;
+        padding-bottom: 10px;
     }
     .message-info .form-group {
         width: 90%;
@@ -1395,14 +1396,44 @@ body {
         padding-left: 10px;
         margin: 0 auto; /* to center */
     }
-    .g-recaptcha {
-        display:contents;
+    /* .g-recaptcha {
+        display: contents;
         padding-top: 10px;
         align-items: center;
+    } */
+
+    .g-recaptcha {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 10px;
+        width: 100%;
+        padding-left: 0; /* override any previous left padding */
     }
+
+    /* .g-recaptcha {
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 10px;
+        padding-left: 10px;
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+    } */
+
+    /* .g-recaptcha {
+        padding-left: 61.3px;
+        padding-top: 10px;
+    } */
 }
 
 @media screen and (max-width: 499px) {
+    .g-recaptcha {
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+        width: 100%;
+    }
     .contact {
         display: flex;
         flex-direction: column; /* displays containers vertically */
